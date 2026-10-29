@@ -1,34 +1,43 @@
 <!doctype html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Calculadora</title>
-<link rel="stylesheet" href="styles.css">
-<script src="calculator.js" defer></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#232b43">
+  <meta name="description" content="Órbita: proyectos, tareas, presupuestos y notas en un solo espacio de trabajo privado.">
+  <title>Órbita · Tu espacio de trabajo</title>
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="app.mjs"></script>
 </head>
 <body>
-<main class="calculator" aria-label="Calculadora">
-  <header><span class="badge">A TU ALCANCE</span><h1>Calculadora<span>.</span></h1><p>Las cuentas claras, las ideas grandes.</p></header>
-  <section class="screen" aria-label="Resultado">
-    <div id="history" class="history">&nbsp;</div>
-    <output id="display" aria-live="polite">0</output>
-  </section>
-  <div class="keys">
-    <button data-action="clear" class="utility">AC</button>
-    <button data-action="sign" class="utility" aria-label="Cambiar signo">±</button>
-    <button data-action="percent" class="utility" aria-label="Porcentaje">%</button>
-    <button data-operator="/" class="operator" aria-label="Dividir">÷</button>
-    <button data-digit="7">7</button><button data-digit="8">8</button><button data-digit="9">9</button>
-    <button data-operator="*" class="operator" aria-label="Multiplicar">×</button>
-    <button data-digit="4">4</button><button data-digit="5">5</button><button data-digit="6">6</button>
-    <button data-operator="-" class="operator" aria-label="Restar">−</button>
-    <button data-digit="1">1</button><button data-digit="2">2</button><button data-digit="3">3</button>
-    <button data-operator="+" class="operator" aria-label="Sumar">+</button>
-    <button data-action="backspace" aria-label="Borrar último dígito">⌫</button><button data-digit="0">0</button>
-    <button data-action="decimal" aria-label="Separador decimal">,</button><button data-action="equals" class="equals" aria-label="Igual">=</button>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+  <aside class="sidebar">
+    <a class="brand" href="#overview"><span class="brand-icon">◉</span> órbita<span class="brand-dot">.</span></a>
+    <div class="workspace"><span class="workspace-icon">E</span><div><strong>Mi espacio</strong><small>Personal · En este dispositivo</small></div></div>
+    <p class="nav-label">ESPACIO DE TRABAJO</p>
+    <nav aria-label="Navegación principal">
+      <a href="#overview" data-view="overview"><span aria-hidden="true">▦</span> Resumen</a>
+      <a href="#projects" data-view="projects"><span aria-hidden="true">◫</span> Proyectos <b id="project-count">0</b></a>
+      <a href="#tasks" data-view="tasks"><span aria-hidden="true">☑</span> Tablero de tareas</a>
+      <a href="#finances" data-view="finances"><span aria-hidden="true">↗</span> Finanzas</a>
+      <a href="#notes" data-view="notes"><span aria-hidden="true">▤</span> Notas</a>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="local-card"><span class="status-dot"></span><strong>Tu trabajo, contigo.</strong><p>Datos guardados en este navegador. Exporta una copia para conservarlos.</p><button data-action="export" class="text-button">Descargar copia <span aria-hidden="true">↗</span></button></div>
+      <button class="settings-button" data-action="settings"><span aria-hidden="true">⚙</span> Datos y configuración</button>
+      <div class="profile"><span class="avatar">TÚ</span><div><strong>Tu espacio personal</strong><small>Sin cuentas ni suscripciones</small></div></div>
+    </div>
+  </aside>
+  <div class="app-shell">
+    <header class="topbar"><div class="breadcrumb">Mi espacio <span>/</span> <strong id="breadcrumb">Resumen</strong></div><label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Buscar en esta vista…" aria-label="Buscar en esta vista" maxlength="120"><kbd>/</kbd></label><button class="help-button" data-action="settings" aria-label="Datos y configuración">⚙</button><button class="help-button" data-action="help" aria-label="Ayuda">?</button></header>
+    <div id="storage-warning" class="warning" role="alert" hidden>No se pueden guardar los cambios en este navegador. Descarga una copia antes de cerrar la página.</div>
+    <main id="main" tabindex="-1"></main>
+    <footer class="app-footer"><span>Hecho para que las cosas avancen.</span><span>Órbita · Espacio personal</span></footer>
   </div>
-  <footer>También puedes usar tu teclado <span>↵</span></footer>
-</main>
+  <dialog id="editor" aria-labelledby="dialog-title"><div id="dialog-content"></div></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+  <input id="import-file" type="file" accept="application/json,.json" hidden>
+  <noscript>Activa JavaScript para usar Órbita. Tus datos se guardan localmente en el navegador.</noscript>
 </body>
 </html>

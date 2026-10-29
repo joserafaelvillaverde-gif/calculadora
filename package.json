@@ -1,0 +1,12 @@
+{
+  "name": "orbita-workspace",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Gestión personal de proyectos, tareas, gastos y notas sin dependencias",
+  "scripts": {
+    "test": "node tests/core.test.mjs",
+    "start": "python3 -m http.server 8000 --bind 127.0.0.1",
+    "test:browser": "node tests/browser.cjs"
+  }
+}
