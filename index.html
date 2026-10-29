@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculadora</title>
+<link rel="stylesheet" href="styles.css">
+<script src="calculator.js" defer></script>
+</head>
+<body>
+<main class="calculator" aria-label="Calculadora">
+  <header><span class="badge">A TU ALCANCE</span><h1>Calculadora<span>.</span></h1><p>Las cuentas claras, las ideas grandes.</p></header>
+  <section class="screen" aria-label="Resultado">
+    <div id="history" class="history">&nbsp;</div>
+    <output id="display" aria-live="polite">0</output>
+  </section>
+  <div class="keys">
+    <button data-action="clear" class="utility">AC</button>
+    <button data-action="sign" class="utility" aria-label="Cambiar signo">±</button>
+    <button data-action="percent" class="utility" aria-label="Porcentaje">%</button>
+    <button data-operator="/" class="operator" aria-label="Dividir">÷</button>
+    <button data-digit="7">7</button><button data-digit="8">8</button><button data-digit="9">9</button>
+    <button data-operator="*" class="operator" aria-label="Multiplicar">×</button>
+    <button data-digit="4">4</button><button data-digit="5">5</button><button data-digit="6">6</button>
+    <button data-operator="-" class="operator" aria-label="Restar">−</button>
+    <button data-digit="1">1</button><button data-digit="2">2</button><button data-digit="3">3</button>
+    <button data-operator="+" class="operator" aria-label="Sumar">+</button>
+    <button data-action="backspace" aria-label="Borrar último dígito">⌫</button><button data-digit="0">0</button>
+    <button data-action="decimal" aria-label="Separador decimal">,</button><button data-action="equals" class="equals" aria-label="Igual">=</button>
+  </div>
+  <footer>También puedes usar tu teclado <span>↵</span></footer>
+</main>
+</body>
+</html>

@@ -1,0 +1,16 @@
+:root {font-family: Inter, system-ui, sans-serif;color:#eceee8;background:#141915;color-scheme:dark}
+* {box-sizing:border-box}
+body {margin:0;min-height:100svh;display:grid;place-items:center;padding:28px 16px;background:radial-gradient(ellipse at 50% 0%,#2b392b 0%,#141915 65%)}
+.calculator {width:min(100%,390px);padding:28px;background:#202720;border:1px solid #3c473b;border-radius:30px;box-shadow:0 30px 80px #0005}
+.badge {font-size:10px;letter-spacing:3px;color:#b5cb94;font-weight:700}
+h1 {font-size:34px;letter-spacing:-1.5px;margin:10px 0 6px}h1 span {color:#c9f290}
+header p {color:#9ba596;font-size:13px;margin:0 0 28px}
+.screen {min-height:116px;background:#151b15;border:1px solid #364232;border-radius:16px;padding:18px;text-align:right;margin-bottom:22px;overflow-wrap:anywhere}
+.history {min-height:20px;color:#8f9d86;font-size:13px}
+output {display:block;font-size:42px;line-height:1.4;font-variant-numeric:tabular-nums;letter-spacing:-1px}
+.keys {display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+button {min-width:0;min-height:62px;border:1px solid #45503f;border-radius:15px;background:#30392d;color:#f1f3eb;font:500 23px system-ui;cursor:pointer;transition:background .15s,transform .1s}
+button:hover {background:#424f3b}button:active {transform:scale(.95)}button:focus-visible {outline:3px solid #e4ffbc;outline-offset:3px}
+.utility {background:#404b36;color:#dfebcd;font-size:19px}.operator {background:#4a5b38;color:#d5efb5}.equals {background:#c9f290;color:#243017;border-color:#c9f290}.equals:hover {background:#d9ffac}
+footer {text-align:center;font-size:11px;color:#9ba596;margin-top:24px}footer span {display:inline-block;border:1px solid #526049;padding:1px 5px;border-radius:4px;margin-left:4px}
+@media(max-width:360px) {.calculator {padding:20px}button {min-height:54px}output {font-size:34px}}
